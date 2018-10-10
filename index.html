@@ -8,11 +8,9 @@
 <body>
 	<nav>
 		<div class="menu-mobile">
-			<ul>
-				<li><a href="#">HOME</a></li>
-			</ul>
+			<a href="#" onclick="showMenu()">HOME</a>
 		</div>
-		<ul>
+		<ul id="menu">
 			<li><a href="#">HOME</a></li>
 			<li><a href="#">ACHIEVMENT</a></li>
 			<li><a href="#">GALERI</a></li>
@@ -25,68 +23,152 @@
 			<div class="photo" style="background-image:url(./assets/img/me.jpg);"></div>
 		</div>
 		<div class="deskripsi">
-			<h1>Muhammad Salman Abid</h1>
-			<p>Front End Developer</p>
-			<a href="#" class="button bg-green">Contact</a>
+			<h1 id="pName">Muhammad Salman Abid</h1>
+			<p id="pRole">Front End Developer</p>
+			<a href="#input-form" class="button bg-green" onclick="editForm()">Edit</a>
 			<a href="#" class="button border-blue">Resume</a>
 		</div>
 		<div class="informasi">
 			<div class="data">
 				<p class="field">Avaibility</p>
-				<p class="text-gray">Full Time</p>
+				<p id="pAvaibility" class="text-gray">Full Time</p>
 			</div>
 			<div class="data">
 				<p class="field">Age</p>
-				<p class="text-gray">16</p>
+				<p id="pAge" class="text-gray">16</p>
 			</div>
 			<div class="data">
 				<p class="field">Location</p>
-				<p class="text-gray">Banyumas, Indonesia</p>
+				<p id="pLocation" class="text-gray">Banyumas, Indonesia</p>
 			</div>
 			<div class="data">
 				<p class="field">Years Experience</p>
-				<p class="text-gray">2</p>
+				<p id="pExperience" class="text-gray">2</p>
 			</div>
 			<div class="data">
 				<p class="field">Email</p>
-				<p class="text-gray">beecoder77@gmail.com</p>
+				<p id="pEmail" class="text-gray">beecoder77@gmail.com</p>
 			</div>
 		</div>
 	</section>
 	<section id="input-form">
-		<form method="#" action="#">
+		<!--<form method="#" action="#">-->
 			<div class="form">
 				<label>Name</label>
-				<input type="text" name="nama">
+				<input id="inpName" type="text" name="nama">
 			</div>
 			<div class="form">
 				<label>Role</label>
-				<input type="text" name="role">
+				<input id="inpRole" type="text" name="role">
 			</div>
 			<div class="form">
 				<label>Avaibility</label>
-				<input type="text" name="avaibility">
+				<input id="inpAvaibility" type="text" name="avaibility">
 			</div>	
 			<div class="form">
 				<label>Age</label>
-				<input type="number" name="age">
+				<input id="inpAge" type="number" name="age">
 			</div>		
 			<div class="form">
 				<label>Location</label>
-				<input type="text" name="location">
+				<input id="inpLocation" type="text" name="location">
 			</div>	
 			<div class="form">
 				<label>Years Experience</label>
-				<input type="number" name="years">
+				<input id="inpYears" type="number" name="years">
 			</div>	
 			<div class="form">
 				<label>Email</label>
-				<input type="text" name="email">
-			</div>	
+				<input id="inpEmail" type="text" name="email">
+			</div>
 			<div class="form">
-				<input type="submit" name="submit" value="SUBMIT">
-			</div>	
-		</form>
+				<label>Alamat</label>
+				<textarea name="alamat" rows="5" cols="40" id="inpAlamat" name="alamat"></textarea>
+			</div>
+			<div class="form">
+				<label>Foto</label>
+				<input type="file" name="foto" accept="image/jpg" accept="image/png">
+			</div>
+			<div class="form">
+				<label>Agama</label>
+				<select id="inpAgama" type="text" name='agama'>
+					<option value='islam'>Islam</option>
+					<option value='kristen'>Kristen</option>
+					<option value='katholik'>Katholik</option>
+					<option value='hindu'>Hindu</option>
+					<option value='kristen'>Budha</option>
+				</select>
+			</div>
+			<div class="form">
+				<input onclick="simpanForm()" type="submit" name="submit" value="SUBMIT">
+			</div>
+		<!-- </form> -->
 	</section>
+
+	<script>
+	var formMenu = document.getElementById("input-form");
+	formMenu.style.display = "none";
+
+	function editForm(){
+		if(formMenu.style.display === "none"){
+			formMenu.style.display = "block";
+		}else{
+			formMenu.style.display = "none";
+		}
+		var name = document.getElementById("pName").innerHTML;
+		var role = document.getElementById("pRole").innerHTML;
+		var avaibility = document.getElementById("pAvaibility").innerHTML;
+		var age = document.getElementById("pAge").innerHTML;
+		var location = document.getElementById("pLocation").innerHTML;
+		var experience = document.getElementById("pExperience").innerHTML;
+		var email = document.getElementById("pEmail").innerHTML;
+
+		document.getElementById("inpName").value = name;
+		document.getElementById("inpRole").value = role;
+		document.getElementById("inpAvaibility").value = avaibility;
+		document.getElementById("inpAge").value = age;
+		document.getElementById("inpLocation").value = location;
+		document.getElementById("inpExperience").value = experience;
+		document.getElementById("inpEmail").value = email;
+		document.getElementById("inpAlamat").value = alamat;
+		document.getElementById("inpFoto").value = foto;
+		document.getElementById("inpAgama").value = agama;
+	}
+	
+	function simpanForm(){
+		formMenu.style.display = "none";
+		var name = document.getElementById("inpName").value;
+		var role = document.getElementById("inpRole").value;
+		var avaibility = document.getElementById("inpAvaibility").value;
+		var age = document.getElementById("inpAge").value;
+		var location = document.getElementById("inpLocation").value;
+		var experience = document.getElementById("inpExperience").value;
+		var email = document.getElementById("inpEmail").value;
+		var alamat = document.getElementById("inpAlamat").value = alamat;
+		var foto = document.getElementById("inpFoto").value = foto;
+		var agama = document.getElementById("inpAgama").value = agama;
+
+		document.getElementById("pName").innerHTML = name;
+		document.getElementById("pRole").innerHTML = role;
+		document.getElementById("pAvaibility").innerHTML = avaibility;
+		document.getElementById("pAge").innerHTML = age;
+		document.getElementById("pLocation").innerHTML = location;
+		document.getElementById("pExperience").innerHTML = experience;
+		document.getElementById("pEmail").innerHTML = email;
+	}
+
+	function showMenu(){
+		var menu = document.getElementById("menu");
+		var box = document.getElementById("box-profile");
+
+		if(menu.style.display === "block"){
+			menu.style.display = "none";
+			box.style.paddingTop = "0px";
+		} else{
+			menu.style.display = "block";
+			box.style.paddingTop = "125px";
+		}
+	}
+	</script>
 </body>
 </html>
