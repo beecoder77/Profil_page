@@ -82,24 +82,6 @@
 				<input id="inpEmail" type="text" name="email">
 			</div>
 			<div class="form">
-				<label>Alamat</label>
-				<textarea name="alamat" rows="5" cols="40" id="inpAlamat" name="alamat"></textarea>
-			</div>
-			<div class="form">
-				<label>Foto</label>
-				<input type="file" name="foto" accept="image/jpg" accept="image/png">
-			</div>
-			<div class="form">
-				<label>Agama</label>
-				<select id="inpAgama" type="text" name='agama'>
-					<option value='islam'>Islam</option>
-					<option value='kristen'>Kristen</option>
-					<option value='katholik'>Katholik</option>
-					<option value='hindu'>Hindu</option>
-					<option value='kristen'>Budha</option>
-				</select>
-			</div>
-			<div class="form">
 				<input onclick="simpanForm()" type="submit" name="submit" value="SUBMIT">
 			</div>
 		<!-- </form> -->
@@ -130,9 +112,6 @@
 		document.getElementById("inpLocation").value = location;
 		document.getElementById("inpExperience").value = experience;
 		document.getElementById("inpEmail").value = email;
-		document.getElementById("inpAlamat").value = alamat;
-		document.getElementById("inpFoto").value = foto;
-		document.getElementById("inpAgama").value = agama;
 	}
 	
 	function simpanForm(){
@@ -144,9 +123,6 @@
 		var location = document.getElementById("inpLocation").value;
 		var experience = document.getElementById("inpExperience").value;
 		var email = document.getElementById("inpEmail").value;
-		var alamat = document.getElementById("inpAlamat").value = alamat;
-		var foto = document.getElementById("inpFoto").value = foto;
-		var agama = document.getElementById("inpAgama").value = agama;
 
 		document.getElementById("pName").innerHTML = name;
 		document.getElementById("pRole").innerHTML = role;
